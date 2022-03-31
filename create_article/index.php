@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             insertArticle($article);
             redirect('../articles');
         } catch (PDOException $exception) {
-
+            echo "Connection error: " . $exception->getMessage();
         }
     } 
 }

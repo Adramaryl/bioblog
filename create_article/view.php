@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <label>
                         Title
-                        <input class="form-control" type="text" name="title" placeholder="Title" maxlength="50" required />
+                        <input class="form-control" type="text" name="title" placeholder="Title" maxlength="50" value="<?= isset($article) ? $_POST['title'] : '' ?>" />
                     </label>
                     <?php if(isset($validations) && isset($validations['title'])): ?>
                         <p><?= $validations['title'] ?></p>
@@ -20,7 +20,9 @@
                 <div class="form-group">
                     <label>
                         Content
-                        <textarea class="form-control" name="content" maxlength="1000" required></textarea>
+                        <textarea class="form-control" name="content" maxlength="1000">
+                            <?= isset($article) ? $_POST['content'] : '' ?>
+                        </textarea>
                     </label>
                     <?php if(isset($validations) && isset($validations['content'])): ?>
                         <p><?= $validations['content'] ?></p>
