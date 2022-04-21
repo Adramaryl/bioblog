@@ -28,6 +28,12 @@
                         <p><?= $validations['content'] ?></p>
                     <?php endif; ?>
                 </div>
+                <div class="form-group">
+                    <label>
+                        Image
+                        <input class="form-control" type="file" name="image" accept="image/*" />
+                    </label>
+                </div>
                 <input class="btn btn-primary" type="submit" value="Save" /> 
             </form>
         </div>
