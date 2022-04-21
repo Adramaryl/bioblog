@@ -23,14 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $article = ['title' => sanitize_input($_POST['title']), 'content' => sanitize_input($_POST['content'])];
 
-    if(isset($_FILES['image']['name'])) {
-        $target_dir = '../uploads/';
-        $target_file = $target_dir . $_FILES['image']['name'];
-        move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
-        $article['image'] = $target_file;
-    }
-
     if (sizeof($validations) === 0) {
+        if(!empty($_FILES['image']['name'])) {
+            $target_dir = '../uploads/';
+            $target_file = $target_dir . $_FILES['image']['name'];
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+            $article['image'] = $target_file;
+        }
         try {
             insertArticle($article);
             redirect('../articles');
