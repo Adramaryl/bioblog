@@ -21,7 +21,7 @@ function validateInputs($inputs) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $validations = validateInputs($_POST);
 
-    $article = ['title' => sanitize_input($_POST['title']), 'content' => sanitize_input($_POST['content'])];
+    $article = ['title' => sanitize_input($_POST['title']), 'content' => $_POST['content']];
 
     if (sizeof($validations) === 0) {
         if(!empty($_FILES['image']['name'])) {
